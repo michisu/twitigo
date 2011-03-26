@@ -1,0 +1,18 @@
+from __future__ import division
+from jinja2.runtime import LoopContext, TemplateReference, Macro, Markup, TemplateRuntimeError, missing, concat, escape, markup_join, unicode_join, to_string, TemplateNotFound
+name = '/game.html'
+
+def root(context, environment=environment):
+    l_game = context.resolve('game')
+    t_1 = environment.filters['safe']
+    if 0: yield None
+    yield u'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n<html>\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n<title>\u5bfe\u5c40\u4e2d - Twitigo</title>\n</head>\n<body>\n<h1><a href="/">Twitigo</a></h1>\n<p>\n%s\u624b\u76ee<br />\n%s\u756a<br />\n</p>\n\n<p>\n%s\n</p>\n\n<p>\n\u9ed2\u30a2\u30b2\u30cf\u30de: %s<br />\n\u767d\u30a2\u30b2\u30cf\u30de: %s<br />\n</p>\n</body>\n</html>' % (
+        escape(environment.getattr(l_game, 'turn_count')), 
+        escape(environment.getattr(l_game, 'turn_label')), 
+        escape(t_1(context.call(environment.getattr(l_game, 'render')))), 
+        escape(environment.getattr(l_game, 'black_caught')), 
+        escape(environment.getattr(l_game, 'white_caught')), 
+    )
+
+blocks = {}
+debug_info = '1=9&10=10&11=11&15=12&19=13&20=14'

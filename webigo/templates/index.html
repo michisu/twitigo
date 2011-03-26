@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Top Page - つい碁</title>
+</head>
+<body>
+<h1>つい碁</h1>
+<p>新しい対局を始める
+<a href="{{ url_for('webigo/new_game', size=9) }}">九路盤</a>
+<a href="{{ url_for('webigo/new_game', size=19) }}">十九路盤</a>
+</p>
+
+<h2>対局リスト</h2>
+<ul>
+{% for game in games %}
+    <li><a href="{{ url_for('webigo/game', game_id=game.key().name()) }}"/>{{ to_local_timezone(game.created_at) }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

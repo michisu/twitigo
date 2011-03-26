@@ -1,0 +1,20 @@
+from __future__ import division
+from jinja2.runtime import LoopContext, TemplateReference, Macro, Markup, TemplateRuntimeError, missing, concat, escape, markup_join, unicode_join, to_string, TemplateNotFound
+name = '/index.html'
+
+def root(context, environment=environment):
+    l_games = context.resolve('games')
+    if 0: yield None
+    yield u'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n<html>\n<head>\n<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n<title>Top Page - Twitigo</title>\n</head>\n<body>\n<h1>Twitigo</h1>\n<p><a href="/new/">\u65b0\u3057\u3044\u5bfe\u5c40\u3092\u59cb\u3081\u308b</a></p>\n\n<ul>\n'
+    l_game = missing
+    for l_game in l_games:
+        if 0: yield None
+        yield u'\n    <li><a href="/game/%s/"/>%s</a></li>\n' % (
+            escape(context.call(environment.getattr(context.call(environment.getattr(l_game, 'key')), 'name'))), 
+            escape(environment.getattr(l_game, 'created_at')), 
+        )
+    l_game = missing
+    yield u'\n</ul>\n</body>\n</html>'
+
+blocks = {}
+debug_info = '1=8&12=10&13=13&14=17'

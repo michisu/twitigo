@@ -1,0 +1,4 @@
+1. download Key 1.1.0 and expand on <KAY_PATH> directory.
+2. make some symbolic links.
+  kay -> <KAY_PATH>/kay
+  manage.py -> <KAY_PATH>/manage.py
