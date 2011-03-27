@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>対局中 - つい碁</title>
+<link rel="stylesheet" type="text/css" href="{{ media_url }}/css/main.css">
 </head>
 <body>
 <h1><a href="{{ url_for('webigo/index') }}">つい碁</a></h1>
@@ -11,7 +12,7 @@
 {{ game.turn_label }}番<br />
 </p>
 
-<p>
+<p class="goban">
 {{ game.render()|safe }}
 </p>
 
