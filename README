@@ -1,4 +1,18 @@
-1. download Key 1.1.0 and expand on <KAY_PATH> directory.
-2. make some symbolic links.
+Twitigo
+
+author:
+Michisu, Toshikazu <michisu@marici.co.jp>
+
+required:
+Google App Engine
+Kay 1.1.0
+
+1. Download and install Google App Engine development environment.
+2. Download Kay 1.1.0 and expand to <KAY_PATH> directory.
+3. Make some symbolic links.
   kay -> <KAY_PATH>/kay
   manage.py -> <KAY_PATH>/manage.py
+4. run server.
+  $ python2.5 manage.py runserver
+5. open 'http://localhost:8080' on your web browser.
+
