@@ -129,8 +129,20 @@ class Goban(object):
                 return u'┠'
             elif y == self.size - 1:
                 return u'┨'
+            elif self.is_star(x, y):
+                return u'╋'
             else:
                 return u'┼'
+
+    def is_star(self, x, y):
+        if self.size == 19:
+            positions = (3, 9, 15)
+        elif self.size == 13:
+            positions = (3, 9)
+        else:
+            positions = ()
+        return ((x in positions and y in positions) or
+            self.size % 2 and x == y == self.size / 2)
         
 def test():
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
