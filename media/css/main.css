@@ -5,4 +5,6 @@ p.goban {
 p.goban a {
     text-decoration: none;
 }
-
+p.goban a:visited {
+    color: blue;
+}

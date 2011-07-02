@@ -4,6 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>対局中 - つい碁</title>
 <link rel="stylesheet" type="text/css" href="{{ media_url }}/css/main.css">
+<script type="text/javascript" src="{{ media_url }}/js/jquery.js"></script>
+<script type="text/javascript" src="{{ media_url }}/js/igo.js"></script>
 </head>
 <body>
 <h1><a href="{{ url_for('webigo/index') }}">つい碁</a></h1>
@@ -22,5 +24,11 @@
 黒アゲハマ: {{ game.black_caught }}<br />
 白アゲハマ: {{ game.white_caught }}<br />
 </p>
+
+<form id="touchform" action="{{ url_for('webigo/touch', game_id=game.key().name()) }}" method="POST">
+<input id="touch_x" type="hidden" name="x" value="" />
+<input id="touch_y" type="hidden" name="y" value="" />
+</form>
+
 </body>
 </html>

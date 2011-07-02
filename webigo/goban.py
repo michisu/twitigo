@@ -17,14 +17,14 @@ class Goban(object):
         self.size = size
         self.data = [ [ self.empty for i in range(size) ]
             for j in range(size) ]
-    
+
     def render(self, output=sys.stdout, html=False):
         for i, line in enumerate(self.data):
             for j, point in enumerate(line):
                 if point == self.empty:
                     s = self._empty_str(i, j)
                     if html:
-                        s = '<a href="touch/%s/%s">%s</a>' % (j, i, s)
+                        s = '<a href="#" onclick="touch(%s, %s)">%s</a>' % (j, i, s)
                 elif point == self.black:
                     s = u'●'
                 else:
@@ -33,7 +33,7 @@ class Goban(object):
                     s = s + '<br />'
                 output.write(s)
             output.write('\n')
-    
+
     @classmethod
     def get_opponent_color(cls, color):
         return cls.black if color is cls.white else cls.white
@@ -143,7 +143,7 @@ class Goban(object):
             positions = ()
         return ((x in positions and y in positions) or
             self.size % 2 and x == y == self.size / 2)
-        
+
 def test():
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
     goban_size = 19

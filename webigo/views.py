@@ -23,9 +23,10 @@ from werkzeug import (
   unescape, redirect, Response,
 )
 from kay.utils import (
-  render_to_response, get_by_key_name_or_404, 
+  render_to_response, get_by_key_name_or_404,
 )
 from models import Game
+from forms import TouchForm
 
 default_goban_size = 19
 
@@ -44,10 +45,12 @@ def game(request, game_id):
     game = get_by_key_name_or_404(Game, game_id)
     return render_to_response('webigo/game.html', {'game':game})
 
-def touch(request, game_id, x, y):
+def touch(request, game_id):
     game = get_by_key_name_or_404(Game, game_id)
-    game.touch(x, y)
-    game.put()
+    # TODO: validation
+    if request.method == 'POST':
+        game.touch(int(request.form['x']), int(request.form['y']))
+        game.put()
     return redirect('/game/%s/' % game_id)
 
 def pass_touch(request, game_id):

@@ -26,7 +26,7 @@ view_groups = [
   ViewGroup(
     Rule('/', endpoint='index', view='webigo.views.index'),
     Rule('/new/<int:size>', endpoint='new_game', view='webigo.views.new_game'),
-    Rule('/game/<game_id>/touch/<int:x>/<int:y>', endpoint='touch', view='webigo.views.touch'),
+    Rule('/game/<game_id>/touch/', endpoint='touch', view='webigo.views.touch'),
     Rule('/game/<game_id>/pass/', endpoint='pass', view='webigo.views.pass_touch'),
     Rule('/game/<game_id>/', endpoint='game', view='webigo.views.game'),
   )
